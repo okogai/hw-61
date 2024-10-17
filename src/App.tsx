@@ -6,8 +6,7 @@ import CountryList from "./components/CountryInfo/CountryList.tsx";
 import CountryDetails from "./components/CountryInfo/CountryDetails.tsx";
 
 const BASE_URL = "https://restcountries.com/v2/";
-const WEATHER_URL =
-  "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+const WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
 const WEATHER_KEY = "&appid=04d6b9f9cd1cb64514a050fa11467ff5";
 
 const App = () => {

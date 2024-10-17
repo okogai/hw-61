@@ -54,8 +54,8 @@ const CountryDetails: React.FC<Props> = ({ code, countryDetails, weather }) => {
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">{countryDetails.name}</h5>
-            <p className="card-text">Столица: {countryDetails.capital}</p>
-            <p className="card-text">Население: {countryDetails.population}</p>
+            <p className="card-text">Capital: {countryDetails.capital}</p>
+            <p className="card-text">Population: {countryDetails.population}</p>
             <img
               src={countryDetails.flag}
               alt={`${countryDetails.name} flag`}
