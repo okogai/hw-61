@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import {Country, CountryDetails} from "./types";
+import {Country, CountryDetailsProps} from "./types";
 import axios from "axios";
 import CountryList from "./components/CountryInfo/CountryList.tsx";
+import CountryDetails from "./components/CountryInfo/CountryDetails.tsx";
 
 const BASE_URL = "https://restcountries.com/v2/";
 
 const App = () => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-  const [countryDetails, setCountryDetails] = useState<CountryDetails | null>(null);
+  const [countryDetails, setCountryDetails] = useState<CountryDetailsProps | null>(null);
 
   const fetchCountries = async () => {
     try {
@@ -34,6 +35,7 @@ const App = () => {
   const handleSelectCountry = (code: string) => {
     setSelectedCountry(code);
     void fetchCountryDetails(code);
+    console.log(countryDetails);
   };
 
   useEffect(() => {
@@ -52,10 +54,11 @@ const App = () => {
             />
           </div>
           <div className="col-md-8">
-            {countryDetails ? (
-                <p>{countryDetails.capital}</p>
+            <h2>Country Details</h2>
+            {selectedCountry ? (
+                <CountryDetails code={selectedCountry} countryDetails={countryDetails}/>
             ) : (
-                <p>Select a country to see details</p>
+                <p>Please select a country</p>
             )}
           </div>
         </div>

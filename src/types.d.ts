@@ -3,7 +3,7 @@ export interface Country {
   name: string;
 }
 
-export interface CountryDetails {
+export interface CountryDetailsProps {
   name: string;
   capital: string;
   population: number;
