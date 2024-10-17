@@ -1,21 +1,21 @@
 import React from 'react';
+import {Country} from "../../types";
 
 interface CountryItemProps {
-    name: string;
-    alpha3Code: string;
+    country: Country;
     isSelected: boolean;
-    onSelect: (code: string) => void;
+    onClick: () => void;
 }
 
-const CountryItem: React.FC<CountryItemProps> = ({name, alpha3Code, onSelect, isSelected}) => {
+const CountryItem: React.FC<CountryItemProps> = ({country, isSelected, onClick}) => {
     return (
         <div>
             <li
                 className={`list-group-item list-group-item-action ${isSelected ? 'active' : ''}`}
-                onClick={() => onSelect(alpha3Code)}
+                onClick={() => onClick()}
                 style={{cursor: 'pointer'}}
             >
-                {name}
+                {country.name}
             </li>
         </div>
     );
